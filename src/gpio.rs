@@ -83,6 +83,8 @@ pub trait GpioExt {
 
     /// Splits the GPIO block into independent pins and registers
     fn split(self, rcc: &mut RCC) -> Self::Parts;
+
+    fn get_parts(self) -> Self::Parts;
 }
 
 /// Id, port and mode for any pin
@@ -583,7 +585,7 @@ macro_rules! gpio {
                     }
                 }
 
-                fn getParts(self) -> Parts {
+                fn get_parts(self) -> Parts {
                     Parts {
                         $(
                             $pxi: $PXi::new(),
