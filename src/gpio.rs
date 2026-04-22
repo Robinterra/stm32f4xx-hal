@@ -582,6 +582,14 @@ macro_rules! gpio {
                         )+
                     }
                 }
+
+                fn getParts(self) -> Parts {
+                    Parts {
+                        $(
+                            $pxi: $PXi::new(),
+                        )+
+                    }
+                }
             }
 
             #[doc="Common type for "]
